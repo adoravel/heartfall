@@ -1,4 +1,3 @@
-import dev.kikugie.fletching_table.extension.FletchingTableExtension
 import org.gradle.api.Project
 import org.gradle.api.plugins.JavaPluginExtension
 import org.gradle.jvm.tasks.Jar
@@ -22,15 +21,9 @@ fun Project.configureIdea() =
 		}
 	}
 
-fun Project.configureFletchingTable(ctx: Context) =
-	extensions.configure<FletchingTableExtension> {
-		mixins.create("main") { mixin("default", "${ctx.modId}.mixins.json") }
-		j52j.register("main") { extension("json", "**/*.json5") }
-	}
-
 fun Project.configureProcessResources(ctx: Context) {
 	tasks.named<ProcessResources>("processResources") {
-		dependsOn(tasks.named("stonecutterGenerate"), "kspKotlin")
+		dependsOn(tasks.named("stonecutterGenerate"))
 		filesMatching("*.mixins.json") {
 			expand("java" to "JAVA_${ctx.javaVersion.majorVersion}")
 		}

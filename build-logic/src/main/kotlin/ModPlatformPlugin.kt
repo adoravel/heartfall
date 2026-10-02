@@ -38,8 +38,6 @@ class ModPlatformPlugin : Plugin<Project> {
 		}
 
 		project.apply(plugin = "org.jetbrains.kotlin.jvm")
-		project.apply(plugin = "com.google.devtools.ksp")
-		project.apply(plugin = "dev.kikugie.fletching-table")
 
 		when (inferredLoader) {
 			is FabricManifestGenerator -> {
@@ -80,7 +78,6 @@ class ModPlatformPlugin : Plugin<Project> {
 			}
 		}
 
-		configureFletchingTable(ctx)
 		registerGenerateManifestTask(ctx)
 		configureJarTask(ctx)
 		configureIdea()
