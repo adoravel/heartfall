@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 ---
+## [0.4.1](%%%repo_url%%%/compare/0.4.0..v0.4.1) - 2026-10-02
+
+### Chores
+
+
+
+- update `CHANGELOG.md` - ([6489845](%%%repo_url%%%/commit/6489845eaaf81338309c452682c2c00bd61a92ea)) - lívia
+- oopsie - ([4c5e3e6](%%%repo_url%%%/commit/4c5e3e68fa38e8f2ce5caba3a44057a7afea148a)) - lívia
+- bump Gradle wrapper to 9.8.0 - ([bed2cb1](%%%repo_url%%%/commit/bed2cb12e106bdef8b3ab915e4d4f65fc41446b9)) - lívia
+
+### Features
+
+
+
+- add Minecraft 26.3 targets - ([a7c3a98](%%%repo_url%%%/commit/a7c3a9892e07b249df19565887faeb2d57149bc2)) - lívia
+
+### Fixes
+
+
+
+- only hostile mobs drop heart shards - ([8a84e93](%%%repo_url%%%/commit/8a84e93f6b748700001c9aeea478e61ca542d74e)) - lívia
+
+### Other
+
+
+
+- bump dep versions - ([5c52619](%%%repo_url%%%/commit/5c52619a5a809a9781213fc51ed1624cac5942c6)) - lívia
+- derive Minecraft version range from Stonecutter targets - ([6dcd267](%%%repo_url%%%/commit/6dcd2671d3faa4d865e706fff8dde03986bac49e)) - lívia
+- drop fletching-table, stonecutter-postprocess and KSP - ([288a38c](%%%repo_url%%%/commit/288a38c22482379ea2249d9fff3b3cbcd17c4dea)) - lívia
+
+
+
+
+## Contributors
+
+- lívia
+---
 ## [0.4.0](%%%repo_url%%%/compare/0.3.1..v0.4.0) - 2026-09-08
 
 ### Chores
@@ -143,7 +180,7 @@ All notable changes to this project will be documented in this file. See [conven
 
 
 
-- initial commit - ([5297628](%%%repo_url%%%/commit/529762888e1660bf3e164bdbeb4d9a1f8a9824e9)) - clara
+- initial commit - ([5297628](%%%repo_url%%%/commit/529762888e1660bf3e164bdbeb4d9a1f8a9824e9)) - Lívia
 - migrate to loom-no-remap 1.14, NeoForge 26.1.2, Gradle 9.5.1, Java 25 - ([6a7a930](%%%repo_url%%%/commit/6a7a930b04d728289d506c6896ce7ac699fb3de4)) - Lívia
 - update mod metadata and dependency ranges for 26.1 - ([302b099](%%%repo_url%%%/commit/302b099f91b1474d21aefc7a05506e21e6f2b2d1)) - Lívia
 - add stonecutter platform buildscripts - ([bb89d4b](%%%repo_url%%%/commit/bb89d4b02ba076ff8f95c5c471e8204b059f7597)) - Lívia
