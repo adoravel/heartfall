@@ -1,4 +1,3 @@
-import dev.kikugie.stonecutter.StonecutterExperimentalAPI
 import dev.kikugie.stonecutter.build.StonecutterBuildExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
@@ -72,8 +71,22 @@ fun Project.list(key: String): ConfigValue<List<String>> =
 			.orEmpty()
 	}
 
-fun Project.envVar(key: String): String? =
-	providers.environmentVariable(key).orNull
+fun Project.envVar(key: String): String? {
+	val sys = rootProject.providers.environmentVariable(key).orNull
+	if (sys != null) return sys
+
+	return providers.fileContents(rootProject.layout.projectDirectory.file(".env"))
+		.asText
+		.getOrElse("")
+		.lines()
+		.map { it.trim() }
+		.filter { it.isNotEmpty() && !it.startsWith("#") && it.contains("=") }
+		.associate {
+			val parts = it.split("=", limit = 2)
+			parts[0].trim() to parts[1].trim().removeSurrounding("\"").removeSurrounding("'")
+		}[key]
+}
+
 
 fun Project.envFlag(key: String): Boolean =
 	envVar(key) == "true"
