@@ -1,5 +1,5 @@
 [versions]
-stonecutter = "0.10-alpha.11"
+stonecutter = "0.9.8"
 mod-publish = "2.2.1"
 dotenv-gradle = "4.0.0"
 loom-back-compat = "0.4.2"

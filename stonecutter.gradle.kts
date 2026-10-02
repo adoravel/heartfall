@@ -14,21 +14,21 @@ stonecutter active file(".version")
 tasks.register("runActiveClient") {
 	group = "stonecutter"
 	description = "Run client of the active Stonecutter version"
-	dependsOn(stonecutter.active!!.project + ":runClient")
+	dependsOn(stonecutter.current!!.project + ":runClient")
 }
 
 tasks.register("runActiveServer") {
 	group = "stonecutter"
 	description = "Run server of the active Stonecutter version"
-	dependsOn(stonecutter.active!!.project + ":runServer")
+	dependsOn(stonecutter.current!!.project + ":runServer")
 }
 
 stonecutter parameters {
 	constants.match(current.project.substringAfterLast('-'), "fabric", "neoforge")
-	swaps["mod_version"] = "\"${properties.get("mod.version")}\";"
-	swaps["mod_id"] = "\"${properties.get("mod.id")}\";"
-	swaps["mod_name"] = "\"${properties.get("mod.name")}\";"
-	swaps["mod_group"] = "\"${properties.get("mod.group")}\";"
+	swaps["mod_version"] = "\"${properties.get<String>("mod.version")}\";"
+	swaps["mod_id"] = "\"${properties.get<String>("mod.id")}\";"
+	swaps["mod_name"] = "\"${properties.get<String>("mod.name")}\";"
+	swaps["mod_group"] = "\"${properties.get<String>("mod.group")}\";"
 	swaps["minecraft"] = "\"${current.version}\";"
 	constants["release"] = true
 }
