@@ -83,7 +83,6 @@ fun Project.configureModPublishing(ctx: Context) {
 
 		type = releaseType
 		version = ctx.fullVersion
-		modLoaders.add(ctx.loader.id)
 		changelog.set(rootProject.file("CHANGELOG.md").readText())
 		displayName = "${ctx.modName} ${ctx.basicVersion} ${ctx.loader.id.replaceFirstChar { it.titlecase() }} ${ctx.currentMinecraftVersion}"
 
