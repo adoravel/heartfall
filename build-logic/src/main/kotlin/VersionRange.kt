@@ -71,3 +71,11 @@ fun Project.configured(vararg path: String): String? {
 		?: project.findStonecutterProperty(loader, "deps", *path)
 		?: project.requireStonecutterProperty(loader, project.stonecutter.current.version, "deps", *path)
 }
+
+fun Project.minecraftVersionRange(): VersionRange {
+	val current = stonecutter.current.version
+	val next = stonecutter.versions.map { it.version }.distinct()
+		.filter { stonecutter.compare(it, current) > 0 }
+		.minWithOrNull { a, b -> stonecutter.compare(a, b) }
+	return VersionRange(min = current, max = next, minInclusive = true, maxInclusive = false)
+}

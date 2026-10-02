@@ -6,7 +6,7 @@ platform {
 	loader = "fabric"
 	dependencies {
 		required("minecraft") {
-			versionRange(project.configured("minecraft")!!.min())
+			versionRange(project.minecraftVersionRange())
 		}
 		required("fabric-entity-events-v1") {
 			slug(modrinth = "fabric-api")

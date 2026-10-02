@@ -6,7 +6,7 @@ platform {
 	loader = "neoforge"
 	dependencies {
 		required("minecraft") {
-			versionRange(project.configured("minecraft")!!.min())
+			versionRange(project.minecraftVersionRange())
 		}
 		required("neoforge") {
 			requires atLeast "1"
