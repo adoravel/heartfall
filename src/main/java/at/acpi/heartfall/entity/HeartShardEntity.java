@@ -45,7 +45,11 @@ public class HeartShardEntity extends Entity {
         builder.define(DATA_DEATH_TICKS, 0);
 
         setYRot(random.nextFloat() * 360f);
+        //? if >=26.3 {
+        /*setInvulnerableTime(0);
+        *///?} else {
         invulnerableTime = 0;
+        //?}
 
         setDeltaMovement(
                 (random.nextDouble() - 0.5) * SPAWN_HORIZONTAL_SPREAD,

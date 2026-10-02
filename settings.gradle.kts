@@ -23,16 +23,17 @@ gradle.beforeProject {
 
 plugins {
 	id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-	id("dev.kikugie.stonecutter") version "0.9.5"
-	id("dev.kikugie.loom-back-compat") version "0.3"
+	id("dev.kikugie.stonecutter") version "0.10-alpha.11"
+	id("dev.kikugie.loom-back-compat") version "0.4.2"
 }
 
 fun TreeBuilder.supports(vararg versions: String) = versions.forEach {
 	versions("$it-fabric" to it).buildscript = "build.fabric.gradle.kts"
+
 	versions("$it-neoforge" to it).buildscript = "build.neoforge.gradle.kts"
 	vcsVersion = "${versions.first()}-fabric"
 }
 
 stonecutter.create(rootProject) {
-	supports("1.21.11", "1.21.1", "26.1.2", "26.2")
+	supports("1.21.11", "1.21.1", "26.1.2", "26.2", "26.3")
 }

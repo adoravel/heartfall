@@ -21,6 +21,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.item.ItemModelResolver;
 import org.jspecify.annotations.NonNull;
+import org.joml.Quaternionfc;
 //?}
 //? if >=26.1 {
 import net.minecraft.client.renderer.state.level.CameraRenderState;
@@ -78,6 +79,16 @@ public class HeartShardEntityRenderer
 		/*return LightTexture.FULL_BRIGHT;
 		 *///?}
 	}
+
+	//? if >=1.21.2 {
+	private static void rotate(PoseStack stack, Quaternionfc quaternion) {
+		//? if >=26.3 {
+		/*stack.rotate(quaternion);
+		*///?} else {
+		stack.mulPose(quaternion);
+		//?}
+	}
+	//?}
 
 	private static float scale(float delta, float deathProgress) {
 		float breathing = SCALE_BASE
@@ -152,8 +163,8 @@ public class HeartShardEntityRenderer
 
 		stack.pushPose();
 		stack.translate(0, state.bob, 0);
-		stack.mulPose(camera.orientation);
-		stack.mulPose(Axis.YP.rotation(state.rotation));
+		rotate(stack, camera.orientation);
+		rotate(stack, Axis.YP.rotation(state.rotation));
 		stack.scale(state.scale, state.scale, state.scale);
 
 		state.item.submit(stack, collector, fullBrightLight(), OverlayTexture.NO_OVERLAY, 0);
